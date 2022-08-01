@@ -1,0 +1,9 @@
+{
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": "..",
+        "args": {
+            "tag": "data-sci-devcontainer"
+        }
+    }
+}
