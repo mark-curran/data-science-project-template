@@ -1,9 +1,20 @@
 {
+    // Instructions for the VSCode Remote-Containers extension.
+    "name": "Data Science Project",  // As appears in the VSC UI.
     "build": {
-        "dockerfile": "Dockerfile",
-        "context": "..",
-        "args": {
-            "tag": "data-sci-devcontainer"
-        }
-    }
+        // All file locations are relative to this file.
+        "dockerfile": "../Dockerfile",
+        "context": ".."
+    },
+    "mounts": [
+        // Mount files that configure the bash shell.
+        // "source=${localWorkspaceFolder}/.devcontainer/.inputrc,target=/root/.inputrc,type=bind,consistency=cached",
+        // "source=${localWorkspaceFolder}/.devcontainer/.bashrc,target=/root/.bashrc,type=bind,consistency=cached",
+        // "source=${localWorkspaceFolder}/.devcontainer/.git-prompt.sh,target=/root/.git-prompt.sh,type=bind,consistency=cached",
+        // "source=${localWorkspaceFolder}/.devcontainer/.git-completion.bash,target=/root/.git-completion.bash,type=bind,consistency=cached",
+        // "source=${localWorkspaceFolder}/.devcontainer/.bash_history,target=/root/.bash_history,type=bind,consistency=cached",
+        // Mount the application code in the /app directory.
+        // "source=${localWorkspaceFolder}/app,target=/app,type=bind,consistency=cached"
+    ]
+    // TODO: customizations.vscode {},
 }
