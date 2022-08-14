@@ -14,7 +14,7 @@
         "source=${localWorkspaceFolder}/.devcontainer/.git-completion.bash,target=/root/.git-completion.bash,type=bind,consistency=cached",
         "source=${localWorkspaceFolder}/.devcontainer/.bash_history,target=/root/.bash_history,type=bind,consistency=cached",
         // Mount the application code in the /app directory.
-        // "source=${localWorkspaceFolder}/app,target=/app,type=bind,consistency=cached"
+        "source=${localWorkspaceFolder}/app,target=/app,type=bind,consistency=cached"
     ]
     // TODO: customizations.vscode {},
 }
