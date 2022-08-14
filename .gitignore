@@ -1,3 +1,8 @@
+# Ignore users bash history.
+.devcontainer/.bash_history
+
+## Default .gitignore settings for a python project, as recommended by .github
+#
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
