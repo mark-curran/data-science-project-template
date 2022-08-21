@@ -16,6 +16,8 @@ services:
       - ./.devcontainer/.bashrc:/root/.bashrc
       # TODO: Mark this as optional and remind user to create it first.
       - ./.devcontainer/.bash_history:/root/.bash_history
+    ports:
+      - "8000:8000"
   dev:
     build:
       context: '.'
