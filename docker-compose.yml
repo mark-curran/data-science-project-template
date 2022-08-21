@@ -16,18 +16,18 @@ services:
       - ./.devcontainer/.bashrc:/root/.bashrc
       # TODO: Mark this as optional and remind user to create it first.
       - ./.devcontainer/.bash_history:/root/.bash_history
-  dev:
-    build:
-      context: '.'
-      args:
-        REQUIREMENTS_FILE: './dev/dev-requirements.txt'
-    volumes:
-      - .:/workspace
-      - ./app:/app 
-  prod:
-    build:
-      context: '.'
-      args:
-        REQUIREMENTS_FILE: './prod-requirements.txt'
-    volumes:
-      - ./app:/app
+  # dev:
+  #   build:
+  #     context: '.'
+  #     args:
+  #       REQUIREMENTS_FILE: './dev/dev-requirements.txt'
+  #   volumes:
+  #     - .:/workspace
+  #     - ./app:/app 
+  # prod:
+  #   build:
+  #     context: '.'
+  #     args:
+  #       REQUIREMENTS_FILE: './prod-requirements.txt'
+  #   volumes:
+  #     - ./app:/app
