@@ -1,0 +1,33 @@
+version: '3'
+services:
+  # Specifications for local development.
+  local:
+    build:
+      context: '.'
+      args:
+        REQUIREMENTS_FILE: '.devcontainer/local-requirements.txt'
+    volumes:
+      - .:/workspace
+      - ./app:/app
+      # Mount if you want to use a custom bash configuration and command history.
+      - ./.devcontainer/.inputrc:/root/.inputrc
+      - ./.devcontainer/.git-prompt.sh:/root/.git-prompt.sh
+      - ./.devcontainer/.git-completion.bash:/root/.git-completion.bash
+      - ./.devcontainer/.bashrc:/root/.bashrc
+      # TODO: Mark this as optional and remind user to create it first.
+      - ./.devcontainer/.bash_history:/root/.bash_history
+  # dev:
+  #   build:
+  #     context: '.'
+  #     args:
+  #       REQUIREMENTS_FILE: './dev/dev-requirements.txt'
+  #   volumes:
+  #     - .:/workspace
+  #     - ./app:/app 
+  # prod:
+  #   build:
+  #     context: '.'
+  #     args:
+  #       REQUIREMENTS_FILE: './prod-requirements.txt'
+  #   volumes:
+  #     - ./app:/app
