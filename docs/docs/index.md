@@ -1,6 +1,6 @@
 # Index Page
 
-A placeholder index page.
+A placeholder index page. This documentation is a work in progress.
 
 ## Subheading 
 
