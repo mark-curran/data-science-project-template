@@ -22,12 +22,13 @@ jobs:
           python-version: '3.10' 
 
       - name: Install dependencies
-        working-directory: /docs
+        working-directory: docs
         run: |
           python -m pip install --upgrade pip
           pip install -r docs-requirements.txt
 
       - name: Deploy
-        working-directory: /docs
+        working-directory: docs
         run: |
+          mkdocs build
           mkdocs gh-deploy
