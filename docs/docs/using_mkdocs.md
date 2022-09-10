@@ -1,4 +1,4 @@
-# Documentation
+# Using mkdocs
 
 Note that run mkdocs locally you need to run:
 
