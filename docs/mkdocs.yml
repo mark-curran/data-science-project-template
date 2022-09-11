@@ -1,8 +1,15 @@
 site_name: 'Data Science Project Template'
 repo_url: https://github.com/mark-curran/data-science-project-template
 remote_branch: gh-pages
+theme: readthedocs
 
 nav:
-    - 'index.md'
-    - 'license.md'
-    - 'using_mkdocs.md'
+    - Home: 'index.md'
+    - Quickstart:
+        - 'quickstart/quickstart.md'
+    - Design:
+        - 'design/design.md'
+    - Reference:
+        - 'reference/using_mkdocs.md'
+    - About:
+        - 'about/about.md'
