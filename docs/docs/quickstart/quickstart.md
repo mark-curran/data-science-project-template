@@ -40,7 +40,7 @@ To install the docker engine on a linux machine refer to the official documentat
 
 The main branch of the [Data Science Project Template repository](https://github.com/mark-curran/data-science-project-template) contains all the files you will need to start developing locally, bar one.
 
-When developing inside the container, your bash history is kept in the file "/root/.bash_history" (by default the container runs as the root user, [this page](../reference/users_inside_container.md) explains some of the limitations of this approach). To prevent your history being destroyed when you rebuilt the container, this file is persisted to the file ".devcontainer/.bash_history" on the local machine. By default this file is part of the ".gitignore", and as such is not present in the main branch. 
+When developing inside the container, your bash history is kept in the file "/root/.bash_history" (by default the container runs as the root user, [this page](../additional_features/users_inside_container.md) explains some of the limitations of this approach). To prevent your history being destroyed when you rebuilt the container, this file is persisted to the file ".devcontainer/.bash_history" on the local machine. By default this file is part of the ".gitignore", and as such is not present in the main branch. 
 
 If you would like to persist command line history between sessions, create an empty file ".devcontainer/.bash_history" before proceeding to build the container for the first time.
 
@@ -51,6 +51,10 @@ If you don't want your caommand line history to be preserved, then comment out [
 To build and connect to the container, open vscode and open the root folder of the Data Science Project Template repo. Make sure Docker Desktop is running.
 
 If the _Remote - Containers_ extension is installed correctly, then you should be able to build the container by bringing up the [command palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette) and entering the command `Remote-Containers: Rebuild Container`.
+
+### Installing vscode extensions
+
+By default the main branch of the template has configurations for a number of [vscode extensions](https://github.com/mark-curran/data-science-project-template/blob/main/.devcontainer/devcontainer.json) under the key `extensions.vscode`. Note, that these extensions (or any other the users want) need to be [installed in vscode](https://code.visualstudio.com/learn/get-started/extensions) prior to starting the container. Alternatively, this key can be removed from the [`.devcontainer.json` file](https://github.com/mark-curran/data-science-project-template/blob/main/.devcontainer/devcontainer.json) if not extensions are required.
 
 ### Optional: Storing code inside WSL
 
