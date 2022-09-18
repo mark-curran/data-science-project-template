@@ -1,6 +1,5 @@
 version: '3'
 services:
-  # Specifications for local development.
   local:
     build:
       context: '.'
@@ -9,17 +8,21 @@ services:
     volumes:
       - .:/workspace
       - ./app:/app
-      # Mount if you want to use a custom bash configuration and command history.
+      # Mount if to use a custom bash configuration.
       - ./.devcontainer/.inputrc:/root/.inputrc
       - ./.devcontainer/.git-prompt.sh:/root/.git-prompt.sh
       - ./.devcontainer/.git-completion.bash:/root/.git-completion.bash
       - ./.devcontainer/.bashrc:/root/.bashrc
-      # TODO: Mark this as optional and remind user to create it first.
+      # Mount to persist bash history on the host machine.
       - ./.devcontainer/.bash_history:/root/.bash_history
-    # TODO: Explain that this is useful for testing things inside the container like:
-    # jupyter notebooks, documentaiton builds, internet applications.
-    ports:
-      - "8000:8000"
+    # Uncomment to expose a port at the host ip address.
+    # ports:
+    #   - target: 8000
+    #     host_ip: 127.0.0.1
+    #     published: 8000
+    #     protocol: tcp
+    #     mode: host
+  
   dev:
     build:
       context: '.'
@@ -27,7 +30,15 @@ services:
         REQUIREMENTS_FILE: './dev/dev-requirements.txt'
     volumes:
       - .:/workspace
-      - ./app:/app 
+      - ./app:/app
+    # Uncomment to expose a port at the host ip address.
+    # ports:
+    #   - target: 8001
+    #     host_ip: 127.0.0.1
+    #     published: 8001
+    #     protocol: tcp
+    #     mode: host
+  
   prod:
     build:
       context: '.'

@@ -125,6 +125,9 @@ venv.bak/
 # mkdocs documentation
 /docs/site
 
+# Scratchpad to keep a personal TODO list:
+docs/scratchpad.md
+
 # mypy
 .mypy_cache/
 .dmypy.json
