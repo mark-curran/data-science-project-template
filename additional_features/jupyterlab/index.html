@@ -64,6 +64,12 @@
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">Jupyterlab</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#starting-the-dev-container">Starting the dev container</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#port-mapping">Port Mapping</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#managing-extensions-and-configs">Managing extensions and configs</a>
+    </li>
     </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../accessing_credentials/">Accessing Credentials</a>
@@ -106,7 +112,29 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="jupyterlab">Jupyterlab</h1>
-<p>This document should explain how to setup jupyterlab.</p>
+<p><a href="https://jupyterlab.readthedocs.io/en/stable/index.html#">Jupyterlab</a> is a web-based development environment that is particularly useful for data manipulation and visualization in python.</p>
+<p>This page explains how to setup Juypyterlab, i.e., the jupyterlab server, in the dev environment. It is strongly recommended to read the section on port mapping below before starting the server.</p>
+<h2 id="starting-the-dev-container">Starting the dev container</h2>
+<p>Start the <code>dev</code> service on the machine that will host the jupyter server</p>
+<p><code>docker-compose run -it --service-ports dev /bin/bash</code></p>
+<p>Jupyterlab creates notebook files, and it is convenient to run the command to start the server from the folder where you want to store these files. For example, to store your notebooks in <code>dev/notebooks</code>, run this command</p>
+<p><code>cd /workspaces/dev/notebooks</code></p>
+<p>Note that the root of the repository is <code>/workspaces</code> inside the dev environment.</p>
+<p>From here start the server by running </p>
+<p><code>jupyter lab --port=8001 --ip 0.0.0.0 --no-browser</code></p>
+<p>or if you are running as root inside the container</p>
+<p><code>jupyter lab --port=8001 --ip 0.0.0.0 --no-browser --allow-root</code></p>
+<p>A message should print to the terminal with a URL from which can access the server, for example</p>
+<p><code>http://127.0.0.1:8001/lab?token=</code></p>
+<p>followed by a long string of characters. These characters are the token that permits access to the server, and by extension the host machine. <strong>Do not share the token with people who should not have access to the host machine.</strong></p>
+<p>You can detach from the container by pressing the <a href="https://docs.docker.com/engine/reference/commandline/attach/#options">detach keys sequence</a> for your system (the default is <code>CTRL-p CTRL-q</code>).</p>
+<h2 id="port-mapping">Port Mapping</h2>
+<p>By starting the jupyter lab server, you give any user direct access to the host. Therefore, it is important to consider
+who can access the host's ip address before starting the server.</p>
+<p>You can specify the host ip address and the port to expose, as explained in the <a href="https://docs.docker.com/compose/compose-file/#ports">docker-compose specification</a>.</p>
+<p>Note, that by default docker-compose will <a href="https://docs.docker.com/engine/reference/commandline/compose_run/">not expose ports when running a container</a>, hence when ports are specified in the compose file, then the argument <code>--service-ports</code> must also be passed.</p>
+<h2 id="managing-extensions-and-configs">Managing extensions and configs</h2>
+<p>It is possible to standardize the behavior of Jupyterlab across a wider team by mounting jupyter configs on the host machine. The jupyter documentation lists <a href="https://docs.jupyter.org/en/latest/use/jupyter-directories.html">common directories and file locations</a> that one could leverage.</p>
               
             </div>
           </div><footer>
