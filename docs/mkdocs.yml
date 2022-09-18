@@ -9,7 +9,13 @@ nav:
         - 'quickstart/quickstart.md'
     - Design:
         - 'design/design.md'
-    - Reference:
-        - 'reference/using_mkdocs.md'
+    - Additional Features:
+        - 'additional_features/editing_requirements.md'
+        - 'additional_features/users_inside_container.md'
+        - 'additional_features/using_mkdocs.md'
+        - 'additional_features/jupyterlab.md'
+        - 'additional_features/accessing_credentials.md'
+    - Further Reading:
+        - 'further_reading/further_reading.md'
     - About:
         - 'about/about.md'

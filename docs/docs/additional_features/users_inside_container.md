@@ -1,4 +1,4 @@
-# User Permissions Inside a Docker Container
+# Running Docker Containers as a non-root User
 
 This document explains some of the difficulties of using a container as a non-root user.
 
