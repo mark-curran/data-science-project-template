@@ -27,7 +27,14 @@ services:
         REQUIREMENTS_FILE: './dev/dev-requirements.txt'
     volumes:
       - .:/workspace
-      - ./app:/app 
+      - ./app:/app
+    ports:
+      - target: 8001
+        host_ip: 127.0.0.1
+        published: 8001
+        protocol: tcp
+        mode: host
+  
   prod:
     build:
       context: '.'
