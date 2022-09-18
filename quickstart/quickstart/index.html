@@ -66,6 +66,8 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#building-and-running-the-container">Building and Running the Container</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#installing-vscode-extensions">Installing vscode extensions</a>
+    </li>
     <li class="toctree-l3"><a class="reference internal" href="#optional-storing-code-inside-wsl">Optional: Storing code inside WSL</a>
     </li>
         </ul>
@@ -78,9 +80,22 @@
                   <li class="toctree-l1"><a class="reference internal" href="../../design/design/">Project Design</a>
                   </li>
               </ul>
-              <p class="caption"><span class="caption-text">Reference</span></p>
+              <p class="caption"><span class="caption-text">Additional Features</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../reference/using_mkdocs/">Using mkdocs</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../additional_features/editing_requirements/">Editing the requirements file</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../additional_features/users_inside_container/">Running Docker Containers as a non-root User</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../additional_features/using_mkdocs/">Using mkdocs</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../additional_features/jupyterlab/">Jupyterlab</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../additional_features/accessing_credentials/">Accessing Credentials</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Further Reading</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../further_reading/further_reading/">Further Reading</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">About</span></p>
@@ -116,7 +131,7 @@
               
                 <h1 id="quickstart">Quickstart</h1>
 <p>This page describes how to set up the Data Science Project Template for local development.</p>
-<p>This project template is in effect a hierarchy of configs that build containers based on the environment data science is being conducted in. At the bottom of that hierarchy is the local container that runs on a users local machine. This guide describes creating and developing inside the local container.</p>
+<p>This project template is in effect a hierarchy of configs that build containers based on the environment that data science is being conducted in. At the bottom of that hierarchy is the local container that runs on a users local machine. This page describes creating and developing inside the local container.</p>
 <h2 id="required-software">Required Software</h2>
 <p>You will need the following applications installed on your local machine.</p>
 <h3 id="docker">Docker</h3>
@@ -125,11 +140,11 @@
 <p>If you are using a Windows machine, then you must additionally install <a href="https://docs.microsoft.com/en-us/windows/wsl/">Windows Subsystem for Linux</a>. Instructions on how to enable WSL with Docker on a windows machine can be found in the <a href="https://docs.docker.com/desktop/windows/wsl/">official documentation</a>.</p>
 <h3 id="optional-visual-studio-code">Optional: Visual Studio Code</h3>
 <p>Once you have installed Docker, it is highly recommended to install <a href="https://code.visualstudio.com/">vscode</a>. The config for the local container is structured according to the <a href="https://containers.dev/implementors/spec/">devcontainer specification</a>, and vscode has an extension (<a href="https://code.visualstudio.com/docs/remote/remote-overview">Remote - Containers</a>) that is compatible with this spec.</p>
-<p>Once vscode is installed, install the "Remote - Containers" extension as per the <a href="https://code.visualstudio.com/docs/remote/containers-tutorial#_install-the-extension">instructions here</a>.</p>
-<p>If you are familiar with Docker and are happy to run the container from the command line, then vscode is not necessary.</p>
+<p>Once vscode is installed, install the <em>Remote - Containers</em> extension as per the <a href="https://code.visualstudio.com/docs/remote/containers-tutorial#_install-the-extension">instructions here</a>.</p>
+<p>If you are familiar with Docker and are happy to run <code>docker-compose</code> from the command line, then vscode is not necessary.</p>
 <h3 id="optional-installing-docker-into-a-linux-subsystem">Optional: Installing Docker into a Linux Subsystem</h3>
 <p>At the time of writing (September 2022), Docker desktop is only available as free software for personal projects and organizations below a certain size. However, the docker engine can be freely installed on any linux machine.</p>
-<p>To install the docker engine on a linux machine refer to the official documentation which explains how to install the docker engine on various distros, e.g., <a href="https://docs.docker.com/engine/install/ubuntu/">Ubuntu</a>. If you are running Windows or Mac and your organisation does not a license to use Docker desktop, you can still run the docker engine from within a virtual machine.</p>
+<p>To install the docker engine on a linux machine refer to the official documentation which explains how to install the docker engine on various distros, e.g., <a href="https://docs.docker.com/engine/install/ubuntu/">Ubuntu</a>. If you are running Windows or Mac and your organisation does not have a license to use Docker desktop, you can still run the docker engine from within a virtual machine.</p>
 <ul>
 <li><a href="https://www.docker.com/pricing/">Docker Desktop pricing</a>.</li>
 <li><a href="https://dev.to/bowmanjd/install-docker-on-windows-wsl-without-docker-desktop-34m9">Running the docker engine in WSL</a>.</li>
@@ -138,12 +153,14 @@
 <h2 id="building-a-local-development-container">Building a Local Development Container</h2>
 <h3 id="persisting-command-line-history">Persisting Command Line History</h3>
 <p>The main branch of the <a href="https://github.com/mark-curran/data-science-project-template">Data Science Project Template repository</a> contains all the files you will need to start developing locally, bar one.</p>
-<p>When developing inside the container, your bash history is kept in the file "/root/.bash_history" (by default the container runs as the root user, <a href="../../reference/users_inside_container/">this page</a> explains some of the limitations of this approach). To prevent your history being destroyed when you rebuilt the container, this file is persisted to the file ".devcontainer/.bash_history" on the local machine. By default this file is part of the ".gitignore", and as such is not present in the main branch. </p>
+<p>When developing inside the container, your bash history is kept in the file "/root/.bash_history" (by default the container runs as the root user, <a href="../../additional_features/users_inside_container/">this page</a> explains some of the limitations of this approach). To prevent your history being destroyed when you rebuild the container, this file is persisted to the file ".devcontainer/.bash_history" on the local machine. To prevent this file being committed to a remote machine, this file is part of the ".gitignore", and as such is not present in the main branch. </p>
 <p>If you would like to persist command line history between sessions, create an empty file ".devcontainer/.bash_history" before proceeding to build the container for the first time.</p>
-<p>If you don't want your caommand line history to be preserved, then comment out <a href="https://github.com/mark-curran/data-science-project-template/blob/999d02b423f3cef22ec2a99f19dd207d69248537/docker-compose.yml#L18">this line</a> in the <code>docker-compose.yml</code> file.</p>
+<p>If you don't want your command line history to be preserved, then comment out <a href="https://github.com/mark-curran/data-science-project-template/blob/999d02b423f3cef22ec2a99f19dd207d69248537/docker-compose.yml#L18">this line</a> in the <code>docker-compose.yml</code> file.</p>
 <h3 id="building-and-running-the-container">Building and Running the Container</h3>
 <p>To build and connect to the container, open vscode and open the root folder of the Data Science Project Template repo. Make sure Docker Desktop is running.</p>
 <p>If the <em>Remote - Containers</em> extension is installed correctly, then you should be able to build the container by bringing up the <a href="https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette">command palette</a> and entering the command <code>Remote-Containers: Rebuild Container</code>.</p>
+<h3 id="installing-vscode-extensions">Installing vscode extensions</h3>
+<p>By default the main branch of the template has configurations for a number of <a href="https://github.com/mark-curran/data-science-project-template/blob/main/.devcontainer/devcontainer.json">vscode extensions</a> under the key <code>extensions.vscode</code>. Note, that these extensions (or any other the users want) need to be <a href="https://code.visualstudio.com/learn/get-started/extensions">installed in vscode</a> prior to starting the container. Alternatively, this key can be removed from the <a href="https://github.com/mark-curran/data-science-project-template/blob/main/.devcontainer/devcontainer.json"><code>.devcontainer.json</code> file</a> if not extensions are required.</p>
 <h3 id="optional-storing-code-inside-wsl">Optional: Storing code inside WSL</h3>
 <p>If you are using WSL then it is recommended that you further <a href="https://code.visualstudio.com/remote/advancedcontainers/improve-performance#_store-your-source-code-in-the-wsl-2-filesystem-on-windows">store your code in WSL 2 filesystem</a>.</p>
               
