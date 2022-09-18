@@ -4,21 +4,21 @@ This project was designed to integrate with the environments one encounters in a
 
 ## Environments in a Data Sciene Project
 
-Though a data science project can have different phases (data exploration, model design,...) that one finds in any explanation of a DevOps or MLOps workflow, usually there are three distinct environments one works with.
+Though a data science project can have the same phases (data exploration, model design,...) that one finds in any explanation of a DevOps or MLOps workflow, usually there are three distinct environments one works with.
 
 Given the different purposes of these environments, it makes sense to have different configurations to address them. In this project, each environment corresponds to a service within the [docker compose file](https://github.com/mark-curran/data-science-project-template/blob/main/docker-compose.yml).
 
 ### Local Development
 
-The users local machine, containing source code, git configurations, code linters and checkers. Running elsewhere on the local machine there is a service for managing the users personal credntials. A local machine might be resource constrained, so this environment should be lightweight.
+The users local machine, containing source code, git configurations, code linters and checkers. Running elsewhere on the local machine there is probably a service for managing the users [personal credentials](../additional_features/accessing_credentials.md). A local machine might have network and resource constraints, which makes it inappropriate for large scale data processing.
 
 ### Dev Development
 
-A remote environment with access to relevant data. It may not make sense to pipe large quantities of data to a local machine, but on the other hand, it may not make sense to use a remote machine to upload personal credentials to this machine. This environment would need access to any relevant data manipulation of ML libraries, e.g., numpy, tensorflow, etc. Packages for debugging, logging and telemetry might be required.
+A remote environment with access to relevant data. This environment would need access to any relevant data manipulation of ML libraries, e.g., numpy, tensorflow, etc. Packages for debugging, logging and telemetry might be required. Depending on data access permissions, it might make sense to mount the credentials of a service account on this machine.
 
 ### Staging/Production
 
-A remote environment identical to production. This environment might be used for testing prior to final deployment or might be production itself. Only the necessary packges are installed in this environment.
+A remote environment identical to production. This environment might be used for testing prior to final deployment or might be production itself. Only the necessary packges are installed in this environment, and personal credentials should certainly not be used to access services.
 
 
 ## Configurations
@@ -50,4 +50,3 @@ The prod environment is created by running the `prod` service in the [docker com
 By default the main branch of the repository contains only the packages that might be relevant in a production setting.
 
 * Data manipulation using [pandas](https://pandas.pydata.org/).
-* The [python kafka client](https://github.com/dpkp/kafka-python).
