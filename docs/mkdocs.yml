@@ -10,11 +10,11 @@ nav:
     - Design:
         - 'design/design.md'
     - Additional Features:
+        - 'additional_features/accessing_credentials.md'
+        - 'additional_features/jupyterlab.md'
         - 'additional_features/editing_requirements.md'
         - 'additional_features/users_inside_container.md'
         - 'additional_features/using_mkdocs.md'
-        - 'additional_features/jupyterlab.md'
-        - 'additional_features/accessing_credentials.md'
     - Further Reading:
         - 'further_reading/further_reading.md'
     - About:
