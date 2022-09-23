@@ -11,5 +11,8 @@ RUN pip3 install -r /tmp/docker_build/${REQUIREMENTS_FILE}
 # Copy the current contents of ./app to the /app directory inside the container.
 COPY ./app /app
 
+# Change to the starting directory.
+WORKDIR ${STARTING_DIR}
+
 # Cleanup once build is finished.
 RUN rm -rf /tmp/docker_build
