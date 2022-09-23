@@ -4,3 +4,4 @@ pydocstyle==6.1.1
 pylint==2.15.3
 pytest==7.1.3
 sort-requirements==1.3.0
+sqlfluff==1.3.1
