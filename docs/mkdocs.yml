@@ -15,6 +15,7 @@ nav:
         - 'additional_features/using_mkdocs.md'
         - 'additional_features/jupyterlab.md'
         - 'additional_features/accessing_credentials.md'
+        - 'additional_features/unit_tests.md'
     - Further Reading:
         - 'further_reading/further_reading.md'
     - About:
