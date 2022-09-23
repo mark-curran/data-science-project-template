@@ -5,7 +5,7 @@ that builds containers appropriate for data science projects.
 
 While this template provides structure for a Data Science codebase, it is not meant to be prescriptive. For those looking to get [up and running quickly](quickstart/quickstart.md), the template has ready integration with docker, vscode and jupyterlab. For those looking to create a reusable code structure in a specific enterprise setting, it might be worthwhile reading the [design decisions](design/design.md) behind the template. Forking this repo should be a starting point, not the final destination.
 
-## Project Status 
+## Project Status
 
 This project is being actively built, and though most of the core functionality is complete the
 documentation is not in a state where the template can be readily used.
