@@ -16,7 +16,7 @@ Jupyterlab creates notebook files, and it is convenient to run the command to st
 
 Note that the root of the repository is `/workspaces` inside the dev environment.
 
-From here start the server by running 
+From here start the server by running
 
 `jupyter lab --port=8001 --ip 0.0.0.0 --no-browser`
 
