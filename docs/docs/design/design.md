@@ -20,7 +20,6 @@ A remote environment with access to relevant data. This environment would need a
 
 A remote environment identical to production. This environment might be used for testing prior to final deployment or might be production itself. Only the necessary packges are installed in this environment, and personal credentials should certainly not be used to access services.
 
-
 ## Configurations
 
 ### local

@@ -40,7 +40,7 @@ To install the docker engine on a linux machine refer to the official documentat
 
 The main branch of the [Data Science Project Template repository](https://github.com/mark-curran/data-science-project-template) contains all the files you will need to start developing locally, bar one.
 
-When developing inside the container, your bash history is kept in the file "/root/.bash_history" (by default the container runs as the root user, [this page](../additional_features/users_inside_container.md) explains some of the limitations of this approach). To prevent your history being destroyed when you rebuild the container, this file is persisted to the file ".devcontainer/.bash_history" on the local machine. To prevent this file being committed to a remote machine, this file is part of the ".gitignore", and as such is not present in the main branch. 
+When developing inside the container, your bash history is kept in the file "/root/.bash_history" (by default the container runs as the root user, [this page](../additional_features/users_inside_container.md) explains some of the limitations of this approach). To prevent your history being destroyed when you rebuild the container, this file is persisted to the file ".devcontainer/.bash_history" on the local machine. To prevent this file being committed to a remote machine, this file is part of the ".gitignore", and as such is not present in the main branch.
 
 If you would like to persist command line history between sessions, create an empty file ".devcontainer/.bash_history" before proceeding to build the container for the first time.
 

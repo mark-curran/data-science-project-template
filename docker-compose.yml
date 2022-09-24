@@ -5,10 +5,11 @@ services:
       context: '.'
       args:
         REQUIREMENTS_FILE: '.devcontainer/local-requirements.txt'
+        STARTING_DIR: '/workspace'
     volumes:
       - .:/workspace
       - ./app:/app
-      # Mount if to use a custom bash configuration.
+      # Mount to use a custom bash configuration.
       - ./.devcontainer/.inputrc:/root/.inputrc
       - ./.devcontainer/.git-prompt.sh:/root/.git-prompt.sh
       - ./.devcontainer/.git-completion.bash:/root/.git-completion.bash
@@ -28,6 +29,7 @@ services:
       context: '.'
       args:
         REQUIREMENTS_FILE: './dev/dev-requirements.txt'
+        STARTING_DIR: '/workspace'
     volumes:
       - .:/workspace
       - ./app:/app
@@ -43,6 +45,7 @@ services:
     build:
       context: '.'
       args:
-        REQUIREMENTS_FILE: './prod-requirements.txt'
+        REQIREMENTS_FILE: './prod-requirements.txt'
+        STARTING_DIR: '/app'
     volumes:
       - ./app:/app
