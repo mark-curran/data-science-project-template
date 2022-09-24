@@ -78,7 +78,7 @@
                     "reportUnusedVariable": "warning"
                 },
                 // Use a custom on save command instead.
-                "python.linting.lintOnSave": false,
+                "python.linting.lintOnSave": true,
                 // Show errors from these code checkers in the "PROBLEMS" tab.
                 "python.linting.pylintEnabled": true,
                 "python.linting.pylintArgs": ["--disable", "import-error"],
