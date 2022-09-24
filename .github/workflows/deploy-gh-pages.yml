@@ -1,5 +1,4 @@
-# Source: https://parkererickson.github.io/portfolio/blog/MkDocsCD/
-# TODO: Add this reference doc to documentaiton: https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions
+
 name: Build Documentation using MkDocs
 
 # Controls when the action will run. Triggers the workflow on push or pull request
