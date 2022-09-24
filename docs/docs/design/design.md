@@ -20,32 +20,40 @@ A remote environment with access to relevant data. This environment would need a
 
 A remote environment identical to production. This environment might be used for testing prior to final deployment or might be production itself. Only the necessary packges are installed in this environment, and personal credentials should certainly not be used to access services.
 
+## Folder Structure
+
+The purpose of each folder in the repository is explained below:
+
+* `.devcontainer/`: All files relating to the local environment.
+* `.github/`: Facilitating GitHub actions.
+* `app/`: The source code of the application. This is the only folder that should be deployed to prod.
+* `dev/`: All files relating to the dev environment.
+* `docs/`: For project documentation.
+* `tests/`: For testing the contents of `app/` folder.
+
 ## Configurations
 
 ### local
 
-The local config is stored in the `.devcontainer` folder. As per the [devcontainer specification](https://containers.dev/implementors/spec/), the file `.devcontainer.json` configures the local environment by starting the `local` service in the [docker compose file](https://github.com/mark-curran/data-science-project-template/blob/main/docker-compose.yml) and by configuring any vscode extensions.
+The local config is stored in the [`.devcontainer` folder](https://github.com/mark-curran/data-science-project-template/tree/main/.devcontainer). As per the [devcontainer specification](https://containers.dev/implementors/spec/), the file `devcontainer.json` configures the local environment by starting the `local` service in the file `docker-compose-local.yml` and installing requirements from `requirements-local.txt`.
 
-By default the main branch of the repository contains a number of vscode extensions that are relevant to local development.
+By default the main branch of the repository contains a number of VSCode extensions that are relevant to local development, including
 
 * [An uncompromising python code formatter](https://github.com/psf/black).
 * A [SQL formatter](https://docs.sqlfluff.com/en/stable/index.html) that works with multiple dialects,  in particular, multiple cloud providers.
-
-The default [requirements file](../additional_features/editing_requirements.md) for this environment is `.devcontainer/local-requirements.txt`.
+* Several [python static code checkers](../additional_features/vscode_extensions.md#data-science-project-template-default-extensions).
 
 ### dev
 
-The dev environment is created by running the `dev` service in the [docker compose file](https://github.com/mark-curran/data-science-project-template/blob/main/docker-compose.yml). Its [requirements file](../additional_features/editing_requirements.md) is `dev/dev-requirements.txt`.
+The dev config is stored in the [`dev` folder](https://github.com/mark-curran/data-science-project-template/tree/main/dev). Start the `dev` service in `docker-compose-dev.yml` which installs the requirements `requirements-dev.txt`.
 
 By default the main branch of the repository contains a number of packages that are relevant to dev development.
 
 * Exploratory data analysis and visualizations using [Jupyterlab](https://jupyterlab.readthedocs.io/en/stable/index.html).
 * Data manipulation using [pandas](https://pandas.pydata.org/).
 
+Further information on using Jupyterlab on remote machine is provided in [this page](../additional_features/jupyterlab.md).
+
 ### prod
 
-The prod environment is created by running the `prod` service in the [docker compose file](https://github.com/mark-curran/data-science-project-template/blob/main/docker-compose.yml). Its [requirements file](../additional_features/editing_requirements.md) is `prod-requirements.txt`.
-
-By default the main branch of the repository contains only the packages that might be relevant in a production setting.
-
-* Data manipulation using [pandas](https://pandas.pydata.org/).
+Finally, the prod config is stored in the [root folder of the repository](https://github.com/mark-curran/data-science-project-template). Start the `prod` service in `docker-compose.yml` which installs the requirements `requirements-prod.txt`.\

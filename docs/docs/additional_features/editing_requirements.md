@@ -1,6 +1,8 @@
-# Editing the requirements file
+# Editing a Requirements File
 
 The requirements file contains a complete list of all python packages needed for an environment to run.
+
+## Commands to Edit a Requirements
 
 If you would like to add a package to an environment, first install the package using the command
 
