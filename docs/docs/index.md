@@ -23,7 +23,7 @@ behind the template, and the structure of the code in more detail.
 
 ### Additional Features
 
-The [Additional Features section](additional_features/reference.md) describes how the various features of the template can be used in different scenarios.
+The Addition Features subsections describe how the various features of the template can be used in different scenarios.
 
 ### Further Reading
 
