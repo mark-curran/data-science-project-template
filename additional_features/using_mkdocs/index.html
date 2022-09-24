@@ -70,6 +70,10 @@
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">Using mkdocs</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#building-mkdocs-locally">Building mkdocs Locally</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#publishing-docs-on-github">Publishing Docs on GitHub</a>
+    </li>
     </ul>
                   </li>
               </ul>
@@ -110,9 +114,21 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="using-mkdocs">Using mkdocs</h1>
-<p>Note that run mkdocs locally you need to run:</p>
-<p><code>0.0.0.0:8000</code></p>
-<p>and make sure that you are exposing port 8000 (or whichever port you choose) in the docker-compose file.</p>
+<p>This page explains how to use <a href="https://www.mkdocs.org/">mkdocs</a> to build project documentation. mkdocs converts collections of markdown files into a website. The developer writes the documentation in a series of markdown files, and writes a single configuration file. In particuarl, the developer does not have to write the html code of the documentation website.</p>
+<p>In this page, we explain creating documentation using files that are in the <code>docs/</code> folder of the main branch of the template repository. The setup of the documentation in this project is not supposed to be prescriptive, but rather to explain a possible documentation solution.</p>
+<h2 id="building-mkdocs-locally">Building mkdocs Locally</h2>
+<p>If you are unfamiliar with mkdocs, we recommend reading <a href="https://www.mkdocs.org/getting-started/">the official tutorial</a>.</p>
+<p>To host documentation locally you will need to install the mkdocs python package in the local environment and make sure the appropriate port is forward from your container to the host machine.</p>
+<p>First, make sure a port is exposed on your container by uncommenting the relevant part of the <a href="https://github.com/mark-curran/data-science-project-template/blob/main/docker-compose.yml"><code>docker-compose.yml</code> file</a> and rebuilding the container. The choice of port 8000 is arbitrary.</p>
+<p>To install the mkdocs package, navigate to the <code>docs/</code> directory and run the command</p>
+<p><code>pip install -r docs-requirements.txt</code></p>
+<p>To build the documentation website and begin hosting it, run the command:</p>
+<p><code>mkdocs serve -a 0.0.0.0:8000</code></p>
+<p>This will build the docs website and host it in port 8000 <em>inside the container</em>. If this port has been forwarded correctly, then opening <code>localhost:8000</code> in a web browser should load the documentation website.</p>
+<h2 id="publishing-docs-on-github">Publishing Docs on GitHub</h2>
+<p>GitHub offers limited amounts of free documentation hosting through <a href="https://pages.github.com/">github pages</a>. You can manually push to GitHub pages by following the instructions in the <a href="https://www.mkdocs.org/user-guide/deploying-your-docs/#github-pages">mkdocs documentation</a>.</p>
+<p>You can also setup a <a href="https://github.com/features/actions">GitHub Action</a> to automatically deploy documentation upon merges into a specific branch of the repsoitory. For this project, documentation is deployed upon merges into the <code>main</code> branch.</p>
+<p>For further information on setting up a GitHub action to deploy documentation, see <a href="https://parkererickson.github.io/portfolio/blog/MkDocsCD/">this post</a>, and the <a href="https://github.com/mark-curran/data-science-project-template/blob/main/.github/workflows/deploy-gh-pages.yml">corresponding file</a> in the Data Science Template respository.</p>
               
             </div>
           </div><footer>

@@ -68,6 +68,16 @@
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">Running Docker Containers as a non-root User</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#dangers-of-running-as-a-non-root-user">Dangers of running as a non-root user</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#changing-the-container-user">Changing the Container User</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#local-environment">Local Environment</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#other-environments">Other Environments</a>
+    </li>
+        </ul>
+    </li>
     </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../using_mkdocs/">Using mkdocs</a>
@@ -110,13 +120,14 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="running-docker-containers-as-a-non-root-user">Running Docker Containers as a non-root User</h1>
-<p>This document explains some of the difficulties of using a container as a non-root user.</p>
-<p>This page is a work in progress.</p>
-<p>For now please refer to these articles:</p>
-<ul>
-<li><a href="https://www.howtogeek.com/devops/why-processes-in-docker-containers-shouldnt-run-as-root/">https://www.howtogeek.com/devops/why-processes-in-docker-containers-shouldnt-run-as-root/</a></li>
-<li><a href="https://code.visualstudio.com/remote/advancedcontainers/add-nonroot-user">https://code.visualstudio.com/remote/advancedcontainers/add-nonroot-user</a></li>
-</ul>
+<p>This document explains some of the difficulties of using a container as a non-root user, and provides links to resources for changing the default container user.</p>
+<h2 id="dangers-of-running-as-a-non-root-user">Dangers of running as a non-root user</h2>
+<p><a href="https://www.howtogeek.com/devops/why-processes-in-docker-containers-shouldnt-run-as-root/">It is recommended that you run docker containers as a non-root user</a> because it could be that the docker daemon is performing operations on the host machine with the same privelages as the container user. If that user is root, then the container can become a conduit for exploiting security flaws in the host system.</p>
+<h2 id="changing-the-container-user">Changing the Container User</h2>
+<h3 id="local-environment">Local Environment</h3>
+<p>The <a href="https://code.visualstudio.com/remote/advancedcontainers/add-nonroot-user"><em>Remote - Containers</em> documentation</a> provides some information on using a non-root user to build the container in the local environment.</p>
+<h3 id="other-environments">Other Environments</h3>
+<p>It is recommended to <a href="https://docs.docker.com/compose/compose-file/#user">add any container users to the Dockerfile</a>. Further information on these commands can be found in the <a href="https://docs.docker.com/engine/reference/builder/#user">official dockerfile documentation</a>.</p>
               
             </div>
           </div><footer>
