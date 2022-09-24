@@ -17,7 +17,5 @@ nav:
         - 'additional_features/unit_tests.md'
         - 'additional_features/users_inside_container.md'
         - 'additional_features/using_mkdocs.md'
-    - Further Reading:
-        - 'further_reading/further_reading.md'
     - About:
         - 'about/about.md'
