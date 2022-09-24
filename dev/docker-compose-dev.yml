@@ -1,0 +1,18 @@
+version: '3'
+services:
+  dev:
+    build:
+      context: '..'
+      args:
+        REQUIREMENTS_FILE: './dev/dev-requirements.txt'
+        STARTING_DIR: '/workspace'
+    volumes:
+      - ..:/workspace
+      - ../app:/app
+    # Uncomment to expose a port at the host ip address.
+    # ports:
+    #   - target: 8001
+    #     host_ip: 127.0.0.1
+    #     published: 8001
+    #     protocol: tcp
+    #     mode: host
