@@ -20,6 +20,17 @@ A remote environment with access to relevant data. This environment would need a
 
 A remote environment identical to production. This environment might be used for testing prior to final deployment or might be production itself. Only the necessary packges are installed in this environment, and personal credentials should certainly not be used to access services.
 
+## Folder Structure
+
+The purpose of each folder in the repository is explained below:
+
+* `.devcontainer/`: All files relating to the local environment.
+* `.github/`: Facilitating GitHub actions.
+* `app/`: The source code of the application. This is the only folder that should be deployed to prod.
+* `dev/`: All files relating to the dev environment.
+* `docs/`: For project documentation.
+* `tests/`: For testing the contents of `app/` folder.
+
 ## Configurations
 
 ### local
@@ -45,4 +56,4 @@ Further information on using Jupyterlab on remote machine is provided in [this p
 
 ### prod
 
-Finally, the prod config is stored in the [root folder of the repository](https://github.com/mark-curran/data-science-project-template). Start the `prod` service in `docker-compose.yml` which installs the requirements `requirements-prod.txt`.
+Finally, the prod config is stored in the [root folder of the repository](https://github.com/mark-curran/data-science-project-template). Start the `prod` service in `docker-compose.yml` which installs the requirements `requirements-prod.txt`.\
