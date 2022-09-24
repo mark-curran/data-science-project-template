@@ -1,24 +1,28 @@
-import pytest
-
-from app.regurgitator import Regurgitator
+"""Tests for the Regurgitator class."""
 
 
-@pytest.fixture
-def regurgitate():
+def test_init(fixture_regurgitator):
+    """Test Regurgitator init.
 
-    return Regurgitator()
-
-
-def test_init(regurgitate):
-
-    assert regurgitate.initiated
+    Args:
+        fixture_regurgitator (Regurgitator): Initialized Regurgitator.
+    """
+    assert fixture_regurgitator.initiated
 
 
-def test_hello(regurgitate):
+def test_hello(fixture_regurgitator):
+    """Test Regurgitator.hello method.
 
-    assert regurgitate.hello("Bob") == "Hello, Bob!"
+    Args:
+        fixture_regurgitator (Regurgitator): Initialized Regurgitator.
+    """
+    assert fixture_regurgitator.hello("Bob") == "Hello, Bob!"
 
 
-def test_goodbye(regurgitate):
+def test_goodbye(fixture_regurgitator):
+    """Test Regurgitator.goodbye method.
 
-    print("hello")
+    Args:
+        fixture_regurgitator (Regurgitator): Initialized Regurgitator.
+    """
+    assert fixture_regurgitator.goodbye("Sally") == "Goodbye, Sally :("
