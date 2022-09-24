@@ -82,17 +82,19 @@
               </ul>
               <p class="caption"><span class="caption-text">Additional Features</span></p>
               <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../additional_features/accessing_credentials/">Accessing Credentials</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../additional_features/vscode_extensions/">VSCode Extensions and Settings</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../additional_features/jupyterlab/">Jupyterlab</a>
+                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../additional_features/editing_requirements/">Editing the requirements file</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../additional_features/unit_tests/">Unit Tests</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../additional_features/users_inside_container/">Running Docker Containers as a non-root User</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../additional_features/using_mkdocs/">Using mkdocs</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../additional_features/jupyterlab/">Jupyterlab</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../additional_features/accessing_credentials/">Accessing Credentials</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../additional_features/unit_tests/">Unit Tests</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Further Reading</span></p>
@@ -155,7 +157,7 @@
 <h2 id="building-a-local-development-container">Building a Local Development Container</h2>
 <h3 id="persisting-command-line-history">Persisting Command Line History</h3>
 <p>The main branch of the <a href="https://github.com/mark-curran/data-science-project-template">Data Science Project Template repository</a> contains all the files you will need to start developing locally, bar one.</p>
-<p>When developing inside the container, your bash history is kept in the file "/root/.bash_history" (by default the container runs as the root user, <a href="../../additional_features/users_inside_container/">this page</a> explains some of the limitations of this approach). To prevent your history being destroyed when you rebuild the container, this file is persisted to the file ".devcontainer/.bash_history" on the local machine. To prevent this file being committed to a remote machine, this file is part of the ".gitignore", and as such is not present in the main branch. </p>
+<p>When developing inside the container, your bash history is kept in the file "/root/.bash_history" (by default the container runs as the root user, <a href="../../additional_features/users_inside_container/">this page</a> explains some of the limitations of this approach). To prevent your history being destroyed when you rebuild the container, this file is persisted to the file ".devcontainer/.bash_history" on the local machine. To prevent this file being committed to a remote machine, this file is part of the ".gitignore", and as such is not present in the main branch.</p>
 <p>If you would like to persist command line history between sessions, create an empty file ".devcontainer/.bash_history" before proceeding to build the container for the first time.</p>
 <p>If you don't want your command line history to be preserved, then comment out <a href="https://github.com/mark-curran/data-science-project-template/blob/999d02b423f3cef22ec2a99f19dd207d69248537/docker-compose.yml#L18">this line</a> in the <code>docker-compose.yml</code> file.</p>
 <h3 id="building-and-running-the-container">Building and Running the Container</h3>
