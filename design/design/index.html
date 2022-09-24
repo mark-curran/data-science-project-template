@@ -93,11 +93,6 @@
                   <li class="toctree-l1"><a class="reference internal" href="../../additional_features/using_mkdocs/">Using mkdocs</a>
                   </li>
               </ul>
-              <p class="caption"><span class="caption-text">Further Reading</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../further_reading/further_reading/">Further Reading</a>
-                  </li>
-              </ul>
               <p class="caption"><span class="caption-text">About</span></p>
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../../about/about/">About</a>
@@ -133,7 +128,7 @@
 <p>This project was designed to integrate with the environments one encounters in a typical data science project. The definitions of said environments, and whether the default settings of the template address them, is of course open to debate. That said, the template design can be used as a starting point, and is not intended as a one size fits all solution.</p>
 <h2 id="environments-in-a-data-sciene-project">Environments in a Data Sciene Project</h2>
 <p>Though a data science project can have the same phases (data exploration, model design,...) that one finds in any explanation of a DevOps or MLOps workflow, usually there are three distinct environments one works with.</p>
-<p>Given the different purposes of these environments, it makes sense to have different configurations to address them. In this project, each environment corresponds to a service within the <a href="https://github.com/mark-curran/data-science-project-template/blob/main/docker-compose.yml">docker compose file</a>.</p>
+<p>Given the different purposes of these environments, it makes sense to have different configurations to address them. In this project, each environment corresponds to a different docker compose file.</p>
 <h3 id="local-development">Local Development</h3>
 <p>The users local machine, containing source code, git configurations, code linters and checkers. Running elsewhere on the local machine there is probably a service for managing the users <a href="../../additional_features/accessing_credentials/">personal credentials</a>. A local machine might have network and resource constraints, which makes it inappropriate for large scale data processing.</p>
 <h3 id="dev-development">Dev Development</h3>
