@@ -3,6 +3,7 @@ FROM python:3.9-bullseye
 
 WORKDIR /tmp/docker_build
 ARG REQUIREMENTS_FILE
+ARG STARTING_DIR
 
 # Install requirements.
 COPY ${REQUIREMENTS_FILE} /tmp/docker_build/${REQUIREMENTS_FILE}

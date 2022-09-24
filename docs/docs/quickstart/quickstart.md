@@ -2,7 +2,7 @@
 
 This page describes how to set up the Data Science Project Template for local development.
 
-This project template is in effect a hierarchy of configs that build containers based on the environment that data science is being conducted in. At the bottom of that hierarchy is the local container that runs on a users local machine. This page describes creating and developing inside the local container.
+The project template is in effect a hierarchy of configs that build containers based on the environment that data science is being conducted in. At the bottom of that hierarchy is the local container that runs on a users local machine. This page describes creating and developing inside the local container.
 
 ## Required Software
 
@@ -10,7 +10,7 @@ You will need the following applications installed on your local machine.
 
 ### Docker
 
-Docker is the application that will run the local container. To install Docker desktop on a Windows or Mac please to the [official site](https://www.docker.com/products/docker-desktop/). There are alternatives such as [podman](https://podman.io/getting-started/), though the project has not been tested on this engine.
+Docker is the application that will run the local container. To install Docker desktop on a Windows, Mac or Linux please to the [official site](https://www.docker.com/products/docker-desktop/). There are alternatives such as [podman](https://podman.io/getting-started/), though the project has not been tested on this engine.
 
 ### For Windows Users: Windows Subsystem for Linux
 
@@ -18,11 +18,11 @@ If you are using a Windows machine, then you must additionally install [Windows 
 
 ### Optional: Visual Studio Code
 
-Once you have installed Docker, it is highly recommended to install [vscode](https://code.visualstudio.com/). The config for the local container is structured according to the [devcontainer specification](https://containers.dev/implementors/spec/), and vscode has an extension ([Remote - Containers](https://code.visualstudio.com/docs/remote/remote-overview)) that is compatible with this spec.
+Once you have installed Docker, it is highly recommended to install [VSCode](https://code.visualstudio.com/). The config for the local container is structured according to the [devcontainer specification](https://containers.dev/implementors/spec/), and VSCode has an extension ([Remote - Containers](https://code.visualstudio.com/docs/remote/remote-overview)) that is compatible with this spec.
 
-Once vscode is installed, install the _Remote - Containers_ extension as per the [instructions here](https://code.visualstudio.com/docs/remote/containers-tutorial#_install-the-extension).
+Once VSCode is installed, install the _Remote - Containers_ extension as per the [instructions here](https://code.visualstudio.com/docs/remote/containers-tutorial#_install-the-extension).
 
-If you are familiar with Docker and are happy to run `docker-compose` from the command line, then vscode is not necessary.
+If you are familiar with Docker and are happy to run `docker-compose` from the command line, then VSCode is not necessary.
 
 ### Optional: Installing Docker into a Linux Subsystem
 
@@ -44,17 +44,17 @@ When developing inside the container, your bash history is kept in the file "/ro
 
 If you would like to persist command line history between sessions, create an empty file ".devcontainer/.bash_history" before proceeding to build the container for the first time.
 
-If you don't want your command line history to be preserved, then comment out [this line](https://github.com/mark-curran/data-science-project-template/blob/999d02b423f3cef22ec2a99f19dd207d69248537/docker-compose.yml#L18) in the `docker-compose.yml` file.
+If you don't want your command line history to be preserved, then remove the mount `./.devcontainer/.bash_history:/root/.bash_history` from the file `.devcontainer/docker-compose-local.yml`.
 
 ### Building and Running the Container
 
-To build and connect to the container, open vscode and open the root folder of the Data Science Project Template repo. Make sure Docker Desktop is running.
+To build and connect to the container, open VSCode and open the root folder of the Data Science Project Template repo. Make sure Docker Desktop is running.
 
 If the _Remote - Containers_ extension is installed correctly, then you should be able to build the container by bringing up the [command palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette) and entering the command `Remote-Containers: Rebuild Container`.
 
-### Installing vscode extensions
+### Installing VSCode extensions
 
-By default the main branch of the template has configurations for a number of [vscode extensions](https://github.com/mark-curran/data-science-project-template/blob/main/.devcontainer/devcontainer.json) under the key `extensions.vscode`. Note, that these extensions (or any other the users want) need to be [installed in vscode](https://code.visualstudio.com/learn/get-started/extensions) prior to starting the container. Alternatively, this key can be removed from the [`.devcontainer.json` file](https://github.com/mark-curran/data-science-project-template/blob/main/.devcontainer/devcontainer.json) if not extensions are required.
+By default the main branch of the template has configurations for a number of [VSCode extensions in the devcontainer.json file](https://github.com/mark-curran/data-science-project-template/blob/main/.devcontainer/devcontainer.json) under the property `"customizations": "vscode" : "extensions"`. These extensions will be installed automatically unless they are removed from `devcontainer.json` prior to building the container. See the page on [VSCode extensions](../additional_features/vscode_extensions.md) for more information.
 
 ### Optional: Storing code inside WSL
 

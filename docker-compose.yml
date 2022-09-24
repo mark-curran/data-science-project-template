@@ -1,46 +1,5 @@
 version: '3'
 services:
-  local:
-    build:
-      context: '.'
-      args:
-        REQUIREMENTS_FILE: '.devcontainer/local-requirements.txt'
-        STARTING_DIR: '/workspace'
-    volumes:
-      - .:/workspace
-      - ./app:/app
-      # Mount to use a custom bash configuration.
-      - ./.devcontainer/.inputrc:/root/.inputrc
-      - ./.devcontainer/.git-prompt.sh:/root/.git-prompt.sh
-      - ./.devcontainer/.git-completion.bash:/root/.git-completion.bash
-      - ./.devcontainer/.bashrc:/root/.bashrc
-      # Mount to persist bash history on the host machine.
-      - ./.devcontainer/.bash_history:/root/.bash_history
-    # Uncomment to expose a port at the host ip address.
-    # ports:
-    #   - target: 8000
-    #     host_ip: 127.0.0.1
-    #     published: 8000
-    #     protocol: tcp
-    #     mode: host
-  
-  dev:
-    build:
-      context: '.'
-      args:
-        REQUIREMENTS_FILE: './dev/dev-requirements.txt'
-        STARTING_DIR: '/workspace'
-    volumes:
-      - .:/workspace
-      - ./app:/app
-    # Uncomment to expose a port at the host ip address.
-    # ports:
-    #   - target: 8001
-    #     host_ip: 127.0.0.1
-    #     published: 8001
-    #     protocol: tcp
-    #     mode: host
-  
   prod:
     build:
       context: '.'
@@ -49,3 +8,4 @@ services:
         STARTING_DIR: '/app'
     volumes:
       - ./app:/app
+    image: my-data-science-app-prod

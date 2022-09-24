@@ -1,7 +1,7 @@
 {
     // Instructions for the VSCode Remote-Containers extension.
     "name": "Data Science Project", // As appears in the VSC UI.
-    "dockerComposeFile": "../docker-compose.yml",
+    "dockerComposeFile": "./docker-compose-local.yml",
     "runServices": [
         "local"
     ],
@@ -48,6 +48,12 @@
                 },
                 // Less notifications to install extensions.
                 "extensions.ignoreRecommendations": true,
+                // Editor actions in response to certain git commands.
+                "git.closeDiffOnOperation": true,
+                "git.mergeEditor": false,
+                "git.suggestSmartCommit": false,
+                "git.useIntegratedAskPass": false,
+                // Control markdown linting.
                 "[markdown]": {
                     "editor.formatOnSave": true
                 },
