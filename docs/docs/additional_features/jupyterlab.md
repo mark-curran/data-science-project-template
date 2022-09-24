@@ -30,7 +30,7 @@ A message should print to the terminal with a URL from which can access the serv
 
 followed by a long string of characters. These characters are the token that permits access to the server, and by extension the host machine. **Do not share the token with people who should not have access to the host machine.**
 
-You can detach from the container by pressing the [detach keys sequence](https://docs.docker.com/engine/reference/commandline/attach/#options) for your system (the default is `CTRL-p CTRL-q`).
+You can detach from the container without stopping it by pressing the [detach keys sequence](https://docs.docker.com/engine/reference/commandline/attach/#options) for your system (the default is `CTRL-p CTRL-q`).
 
 ## Port Mapping
 
