@@ -6,7 +6,7 @@ This project was designed to integrate with the environments one encounters in a
 
 Though a data science project can have the same phases (data exploration, model design,...) that one finds in any explanation of a DevOps or MLOps workflow, usually there are three distinct environments one works with.
 
-Given the different purposes of these environments, it makes sense to have different configurations to address them. In this project, each environment corresponds to a service within the [docker compose file](https://github.com/mark-curran/data-science-project-template/blob/main/docker-compose.yml).
+Given the different purposes of these environments, it makes sense to have different configurations to address them. In this project, each environment corresponds to a different docker compose file.
 
 ### Local Development
 
