@@ -6,6 +6,7 @@ services:
       args:
         REQUIREMENTS_FILE: '.devcontainer/local-requirements.txt'
         STARTING_DIR: '/workspace'
+    image: my-data-science-app-local
     volumes:
       - ..:/workspace
       - ../app:/app
