@@ -52,7 +52,7 @@ These extensions are:
     * [pylance](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance) is the language server. Problems identified by pylance appear in the _PROBLEMS_ tab in the VSCode UI.
     * [pylint](https://pylint.pycqa.org/en/latest/) and [pydocstyle](http://www.pydocstyle.org/en/stable/) are enabled. Problems identified by these static code checkers appear in the _PROBLEMS_ tab in the VSCode UI.
     * [autoDocstring](https://github.com/NilsJPWerner/autoDocstring) is enabled and provides shortcuts to generate `google` style docstrings.
-    * Upon save, both [isort](https://pypi.org/project/isort/) and [black](https://pypi.org/project/black/) are run on all python files.
+    * Upon save, both [isort](https://pypi.org/project/isort/) and [black](https://pypi.org/project/black/) are run on all python files. Moreover notifications raised by pylance, pylint and pydocstyle are also refreshed.
     * All code checkers will ignore unresolved imports. This is because heavyweight libraries should be [installed in a dev and prod environments](../design/design.md#environments-in-a-data-sciene-project), the local environment should be as lightweight as possible.
     * Telemetry is disabled.
     * [VSCode UI for unit testing](https://code.visualstudio.com/docs/python/testing) are disabled. Tests can be run from [the command line](../additional_features/unit_tests.md).
