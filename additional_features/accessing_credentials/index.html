@@ -74,7 +74,7 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../jupyterlab/">Jupyterlab</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../editing_requirements/">Editing the requirements file</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../editing_requirements/">Editing a Requirements File</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../unit_tests/">Unit Tests</a>
                   </li>
@@ -115,27 +115,23 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="accessing-credentials">Accessing Credentials</h1>
-<p>This page explains how to access credentials inside the container.</p>
+<p>This page explains how to access credentials from inside the local container.</p>
 <h2 id="git-credentials-in-a-local-environment">Git credentials in a local environment</h2>
-<p>If you are using a <a href="https://git-scm.com/docs/gitcredentials">git credentials helper</a> on the host machine, then vscode will automatically forward git actions
-to the credential helper for authenticating with the remote git repository.</p>
-<p>Another common scenario is the use of ssh keys to authenticate. In this case, the <a href="https://code.visualstudio.com/docs/remote/containers#_using-ssh-keys"><em>Remote - Containeters</em> documentation</a> explains
-how ssh authentication can be made accessible from within the local container. In effect, one has to configure the <code>ssh-agent</code> on the host machine, and a socket <code>SSH_AUTH_SOCK</code> is made available from within the container.</p>
+<p>If you are using a <a href="https://git-scm.com/docs/gitcredentials">git credentials helper</a> on the host machine, then VSCode will automatically forward git actions to the credentials helper for authenticating with the remote git repository.</p>
+<p>Another common scenario is the use of ssh keys to authenticate. In this case, the <a href="https://code.visualstudio.com/docs/remote/containers#_using-ssh-keys"><em>Remote - Containeters</em> documentation</a> explains how ssh authentication can be made accessible from within the local container. In effect, one has to configure the <code>ssh-agent</code> on the host machine, after which VSCode makes a socket <code>SSH_AUTH_SOCK</code>  available from within the container.</p>
 <h2 id="credentials-from-other-providers">Credentials from other Providers</h2>
-<p>Accessing credentials on remotely hosted environments depends on how the remote host is configured, and how
-the provider's clients (e.g. python, cli,...) access those credentials.</p>
-<p>Below are some links to resources that explain how with GCP or AWS credentials are accessed, along with example
-for mounting those credentials on a container.</p>
+<p>Accessing credentials on remotely hosted environments depends on how the remote host is configured, and how the provider's client libraries (e.g. python, cli,...) access those credentials.</p>
+<p>Below are some links to resources that explain how with GCP or AWS credentials are accessed, along with examples for mounting those credentials on a container.</p>
 <p>In a local environment, setting an environment variable or mounting a read only credentials file is sufficient. On remotely hosted environments, it is recommended to use the provider's language specific SDK to access credentials.</p>
 <h3 id="gcp">GCP</h3>
 <ul>
-<li><a href="https://medium.com/google-cloud/use-google-cloud-user-credentials-when-testing-containers-locally-acb57cd4e4da">Blog post</a> on mounting the local machine's user credentials onto a container in a local environment.</li>
-<li>Note, that tor remote environments, Google recommends using <a href="https://cloud.google.com/run/docs/securing/service-identity#per-service-identity">authenticating using a client library</a> instead of an environment variable in the container.</li>
+<li>This <a href="https://medium.com/google-cloud/use-google-cloud-user-credentials-when-testing-containers-locally-acb57cd4e4da">blog post</a> explains mounting the local machine's user credentials onto a container in a local environment.</li>
+<li>Note, that tor remote environments, Google recommends <a href="https://cloud.google.com/run/docs/securing/service-identity#per-service-identity">authenticating using a client library</a> instead of an environment variable in the container.</li>
 </ul>
 <h3 id="aws">AWS</h3>
 <ul>
-<li>Similarly to GCP, a <a href="https://prabhatsharma.in/blog/vscode-dev-container-aws-credentials/">Blog Post</a> on mounting your credentials on a docker container in a local environment.</li>
-<li>Official <a href="https://docs.aws.amazon.com/sdkref/latest/guide/feature-container-credentials.html">AWS advice</a> on credentials for containers running in an AWS remote environment. Like GCP, it's recommended to use language specific
+<li>Similarly to GCP, this <a href="https://prabhatsharma.in/blog/VSCode-dev-container-aws-credentials/">blog Post</a> explains mounting credentials on a docker container in a local environment.</li>
+<li>Official <a href="https://docs.aws.amazon.com/sdkref/latest/guide/feature-container-credentials.html">AWS advice</a> on credentials for containers running in an AWS remote environment. Like GCP, it's recommended to use a language specific
 SDK to authenticate.</li>
 <li>Official <a href="https://aws.amazon.com/blogs/containers/diving-into-iam-roles-for-service-accounts/">AWS deep dive</a> on using service account credentials for containers running on EKS.</li>
 </ul>

@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>Editing the requirements file - Data Science Project Template</title>
+    <title>Editing a Requirements File - Data Science Project Template</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Editing the requirements file";
+        var mkdocs_page_name = "Editing a Requirements File";
         var mkdocs_page_input_path = "additional_features/editing_requirements.md";
         var mkdocs_page_url = null;
       </script>
@@ -62,8 +62,10 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../jupyterlab/">Jupyterlab</a>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Editing the requirements file</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Editing a Requirements File</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#commands-to-edit-a-requirements">Commands to Edit a Requirements</a>
+    </li>
     </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../unit_tests/">Unit Tests</a>
@@ -92,7 +94,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
-          <li>Additional Features &raquo;</li><li>Editing the requirements file</li>
+          <li>Additional Features &raquo;</li><li>Editing a Requirements File</li>
     <li class="wy-breadcrumbs-aside">
         <a href="https://github.com/mark-curran/data-science-project-template/edit/master/docs/additional_features/editing_requirements.md"
           class="icon icon-github"> Edit on GitHub</a>
@@ -104,8 +106,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="editing-the-requirements-file">Editing the requirements file</h1>
+                <h1 id="editing-a-requirements-file">Editing a Requirements File</h1>
 <p>The requirements file contains a complete list of all python packages needed for an environment to run.</p>
+<h2 id="commands-to-edit-a-requirements">Commands to Edit a Requirements</h2>
 <p>If you would like to add a package to an environment, first install the package using the command</p>
 <p><code>pip install &lt;package_name&gt;</code></p>
 <p>This will add the package to the evironment's python installation. One can also remove packages using the <code>pip uninstall</code> command. To automatically install these packages next time the container is built, you will need to update the requirements file. To produce the updated package list in the format required, run the command</p>

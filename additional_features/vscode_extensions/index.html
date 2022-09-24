@@ -64,13 +64,13 @@
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#extension-locations">Extension Locations</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#installing-binaries">Installing binaries</a>
+    <li class="toctree-l3"><a class="reference internal" href="#installing-binaries">Installing Binaries</a>
     </li>
         </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#changing-extension-settings">Changing Extension Settings</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#rebuilding-container-after-changing-devcontainerjson">Rebuilding container after changing devcontainer.json</a>
+    <li class="toctree-l3"><a class="reference internal" href="#rebuilding-the-container-after-changing-devcontainerjson">Rebuilding the Container After Changing devcontainer.json</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#note-jupyter-always-installed-locally">Note Jupyter always installed locally</a>
     </li>
@@ -84,7 +84,7 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../jupyterlab/">Jupyterlab</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../editing_requirements/">Editing the requirements file</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../editing_requirements/">Editing a Requirements File</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../unit_tests/">Unit Tests</a>
                   </li>
@@ -128,28 +128,28 @@
 <p>This page explains how to leverage VSCode extensions and settings.</p>
 <h2 id="installing-extensions">Installing Extensions</h2>
 <p><a href="https://code.visualstudio.com/docs/editor/extension-marketplace">VSCode extensions</a> add additional features to the editor. In the <a href="../../quickstart/quickstart/#optional-visual-studio-code">quickstart guide</a>, we installed the VSCode <em>Remote - Containers</em> extension. Additional extensions will be instaleld automatically when the local contianer is built.</p>
-<p>To specify which extensions are installed, you can add the extension id to the <code>devcontainer.json</code> as specified in the <a href="https://containers.dev/supporting">devcontain.json reference</a>, under the propery <code>"customizations": "vscode": "extensions"</code>. You can <a href="https://code.visualstudio.com/docs/editor/extension-marketplace#_command-line-extension-management">use the VSCode UI</a> to find an extension's id. Moreover, extensions can be selected through the VSCode UI and added to the <code>devcontainer.json</code> file through the <a href="https://code.visualstudio.com/docs/remote/containers#_managing-extensions">VSCode UI</a>.</p>
+<p>To specify which extensions are installed, you can add the extension id to the <code>devcontainer.json</code>(as specified in the <a href="https://containers.dev/supporting">devcontain.json reference</a>) under the propery <code>"customizations": "vscode": "extensions"</code>. You can <a href="https://code.visualstudio.com/docs/editor/extension-marketplace#_command-line-extension-management">use the VSCode UI</a> to find an extension's id. Moreover, extensions can be added to the <code>devcontainer.json</code> file through the <a href="https://code.visualstudio.com/docs/remote/containers#_managing-extensions">VSCode UI</a>.</p>
 <p>In addition, you can specify general VSCode settings under the propery <code>"customizations": "vscode": "settings"</code>. In particular, you can specify extension settings.</p>
 <h3 id="extension-locations">Extension Locations</h3>
 <p>The final piece of information to be specified is where the extension will run; either in "ui" (i.e. the host machine) or "workspace"(inside the container). Not all extensions have the flexibility to run in both, and running in the "ui" reduces latency. However, if latency is not an issue and the extension supports it, then it's recommended to install the extension in "workspace" so that any binaries the extension requires are not installed in the host machine's default environment.</p>
-<p>To specify a running location edit the property <code>"remote.extensionKind"</code> as explained in the <a href="https://code.visualstudio.com/docs/remote/containers#_advanced-forcing-an-extension-to-run-locally-or-remotely">official documentation</a>. A more detailed explanation is provided in <a href="https://code.visualstudio.com/api/advanced-topics/extension-host#preferred-extension-location">VSCODE API documentation</a>.</p>
-<h3 id="installing-binaries">Installing binaries</h3>
+<p>To specify a running location edit the property <code>"remote.extensionKind"</code> as explained in the <a href="https://code.visualstudio.com/docs/remote/containers#_advanced-forcing-an-extension-to-run-locally-or-remotely">official documentation</a>. A more detailed explanation is provided in <a href="https://code.visualstudio.com/api/advanced-topics/extension-host#preferred-extension-location">VSCode API documentation</a>.</p>
+<h3 id="installing-binaries">Installing Binaries</h3>
 <p>In order for an extension to run, it may require the installation of additional packages. Separating out these packages from the packages needed to run the Data Science project itself, is one of the main reasons behind <a href="../../design/design/#environments-in-a-data-sciene-project">separating local development from dev and prod environments</a>.</p>
 <p>If additional python packages are required, then they must be added to the <a href="https://github.com/mark-curran/data-science-project-template/blob/main/.devcontainer/local-requirements.txt">local requirements file</a>. See the section on <a href="../editing_requirements/">editing the requirements file</a> for more information.</p>
 <h2 id="changing-extension-settings">Changing Extension Settings</h2>
-<h3 id="rebuilding-container-after-changing-devcontainerjson">Rebuilding container after changing devcontainer.json</h3>
+<h3 id="rebuilding-the-container-after-changing-devcontainerjson">Rebuilding the Container After Changing <code>devcontainer.json</code></h3>
 <p>You can add additional extension settings by creating and editing the file <code>.vscode/settings.json</code>. This file is not git tracked.</p>
 <p>Moreover, any changes to extension settings in the <code>devcontainer.json</code> file are not enacted until the container is rebuilt.</p>
-<p>Alternatively, on can install extensions on the <a href="https://code.visualstudio.com/remote/advancedcontainers/avoid-extension-reinstalls">local host and mount them on the container</a>.</p>
+<p>Alternatively, one can install extensions on the <a href="https://code.visualstudio.com/remote/advancedcontainers/avoid-extension-reinstalls">local host and mount them on the container</a>.</p>
 <h3 id="note-jupyter-always-installed-locally">Note Jupyter always installed locally</h3>
-<p>As of September 2022, the Jupyter extension will always be installed when the python extension is. See <a href="https://github.com/microsoft/vscode-jupyter/issues/5520">this GitHub issue</a> for further information. If you would like to uninstall jupyter after building the local container, run the command</p>
+<p>As of September 2022, the Jupyter extension will always be installed when the python extension is. See <a href="https://github.com/microsoft/VSCode-jupyter/issues/5520">this GitHub issue</a> for further information. If you would like to uninstall jupyter after building the local container, run the command</p>
 <p><code>code --uninstall-extension ms-toolsai.jupyter</code></p>
-<p>Note, one cannot rely on using the <a href="https://containers.dev/implementors/json_reference/#lifecycle-scripts">Lifecycle Scripts</a> because these trigger before vscode starts installing extensions.</p>
+<p>Note, one cannot rely on using the <a href="https://containers.dev/implementors/json_reference/#lifecycle-scripts">Lifecycle Scripts</a> to execute this command because these trigger before VSCode begins installing extensions.</p>
 <h2 id="data-science-project-template-default-extensions">Data Science Project Template Default Extensions</h2>
 <p>The Data Science Project Template main branch includes the id and settings for several extensions that are useful in the development of a Data Science application, though like most of the template this reflects personal taste and is not supposed to be prescriptive.</p>
 <p>These extensions are:</p>
 <ul>
-<li><strong>RunOnSave:</strong> The <a href="https://marketplace.visualstudio.com/items?itemName=emeraldwalk.RunOnSave">RunOnSave extension</a> coordinates commond line actions that are taken upon file save. Different commands are run depending on the file extension.</li>
+<li><strong>RunOnSave:</strong> The <a href="https://marketplace.visualstudio.com/items?itemName=emeraldwalk.RunOnSave">RunOnSave extension</a> coordinates command line actions that are taken upon file save. Different commands are run depending on the file extension.</li>
 <li>
 <p><strong>Python:</strong> The default python extension provided by Microsoft. The settings file uses mostly default values, with a few exceptions. The main configuration decisions are:</p>
 <ul>
@@ -160,25 +160,25 @@
 <li>All code checkers will ignore unresolved imports. This is because heavyweight libraries should be <a href="../../design/design/#environments-in-a-data-sciene-project">installed in a dev and prod environments</a>, the local environment should be as lightweight as possible.</li>
 <li>Telemetry is disabled.</li>
 <li><a href="https://code.visualstudio.com/docs/python/testing">VSCode UI for unit testing</a> are disabled. Tests can be run from <a href="../unit_tests/">the command line</a>.</li>
-<li>Rulers are drawn at 79 and 99 characters as a visual guide to stay within the <a href="https://peps.python.org/pep-0008/#maximum-line-length">pep8 recommended line length</a>.</li>
+<li>Rulers are drawn at 79 and 99 characters as a visual guide to help stay within the <a href="https://peps.python.org/pep-0008/#maximum-line-length">pep8 recommended line length</a>.</li>
 <li>Requirements files are <a href="https://github.com/rehandalal/sort-requirements">automatically sorted</a>.</li>
 </ul>
 </li>
 <li>
-<p><strong>SQLFluff:</strong> <a href="[https://www.sqlfluff.com/">SQLFluff</a> is run on every file with an sql extension upon file save. You must specify a dialect in the RunOnSave command.</p>
+<p><strong>SQLFluff:</strong> <a href="[https://www.sqlfluff.com/">SQLFluff</a> is run on every file with a sql extension upon file save. Note, that you must specify a dialect in the RunOnSave command.</p>
 </li>
 <li>
-<p><strong>VSCode:</strong> Several settings are also imposed on the VSCode editor. These can be overwritten in the <code>devcontainer.json</code> file, or by adding <code>.vscode/settings.json</code> file to the local repository.</p>
+<p><strong>VSCode:</strong> Several settings are also imposed on the VSCode editor. These can be overwritten directly in the <code>devcontainer.json</code> file, or by adding <code>.vscode/settings.json</code> file to the local repository.</p>
 <ul>
 <li>Quick suggestions are disabled.</li>
-<li>Popups with recommended extensions are disabled.</li>
+<li>Popups for recommended extensions are disabled.</li>
 <li>The <a href="https://marketplace.visualstudio.com/items?itemName=wesbos.theme-cobalt2">Cobalt2 theme</a> is the default color theme.</li>
 </ul>
 </li>
 <li>
 <p><strong>Markdown Lint:</strong> Markdown files are automatically linted with an indent set to <code>4</code> by <a href="https://github.com/DavidAnson/markdownlint">Markdown Lint</a>.</p>
 </li>
-<li><strong>TODO Tree:</strong> Keep track of <code>TODO</code> statements using <a href="https://github.com/Gruntfuggly/todo-tree">TODO tree</a>.</li>
+<li><strong>TODO Tree:</strong> <code>TODO</code> statements are tracked and highlighted using <a href="https://github.com/Gruntfuggly/todo-tree">TODO tree</a>.</li>
 </ul>
 <h2 id="links">Links</h2>
 <ul>

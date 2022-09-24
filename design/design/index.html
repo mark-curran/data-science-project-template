@@ -63,6 +63,8 @@
     </li>
         </ul>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#folder-structure">Folder Structure</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#configurations">Configurations</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#local">local</a>
@@ -84,7 +86,7 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../additional_features/jupyterlab/">Jupyterlab</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../additional_features/editing_requirements/">Editing the requirements file</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../additional_features/editing_requirements/">Editing a Requirements File</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../additional_features/unit_tests/">Unit Tests</a>
                   </li>
@@ -135,28 +137,35 @@
 <p>A remote environment with access to relevant data. This environment would need access to any relevant data manipulation of ML libraries, e.g., numpy, tensorflow, etc. Packages for debugging, logging and telemetry might be required. Depending on data access permissions, it might make sense to mount the credentials of a service account on this machine.</p>
 <h3 id="stagingproduction">Staging/Production</h3>
 <p>A remote environment identical to production. This environment might be used for testing prior to final deployment or might be production itself. Only the necessary packges are installed in this environment, and personal credentials should certainly not be used to access services.</p>
+<h2 id="folder-structure">Folder Structure</h2>
+<p>The purpose of each folder in the repository is explained below:</p>
+<ul>
+<li><code>.devcontainer/</code>: All files relating to the local environment.</li>
+<li><code>.github/</code>: Facilitating GitHub actions.</li>
+<li><code>app/</code>: The source code of the application. This is the only folder that should be deployed to prod.</li>
+<li><code>dev/</code>: All files relating to the dev environment.</li>
+<li><code>docs/</code>: For project documentation.</li>
+<li><code>tests/</code>: For testing the contents of <code>app/</code> folder.</li>
+</ul>
 <h2 id="configurations">Configurations</h2>
 <h3 id="local">local</h3>
-<p>The local config is stored in the <code>.devcontainer</code> folder. As per the <a href="https://containers.dev/implementors/spec/">devcontainer specification</a>, the file <code>.devcontainer.json</code> configures the local environment by starting the <code>local</code> service in the <a href="https://github.com/mark-curran/data-science-project-template/blob/main/docker-compose.yml">docker compose file</a> and by configuring any vscode extensions.</p>
-<p>By default the main branch of the repository contains a number of vscode extensions that are relevant to local development.</p>
+<p>The local config is stored in the <a href="https://github.com/mark-curran/data-science-project-template/tree/main/.devcontainer"><code>.devcontainer</code> folder</a>. As per the <a href="https://containers.dev/implementors/spec/">devcontainer specification</a>, the file <code>devcontainer.json</code> configures the local environment by starting the <code>local</code> service in the file <code>docker-compose-local.yml</code> and installing requirements from <code>requirements-local.txt</code>.</p>
+<p>By default the main branch of the repository contains a number of VSCode extensions that are relevant to local development, including</p>
 <ul>
 <li><a href="https://github.com/psf/black">An uncompromising python code formatter</a>.</li>
 <li>A <a href="https://docs.sqlfluff.com/en/stable/index.html">SQL formatter</a> that works with multiple dialects,  in particular, multiple cloud providers.</li>
+<li>Several <a href="../../additional_features/vscode_extensions/#data-science-project-template-default-extensions">python static code checkers</a>.</li>
 </ul>
-<p>The default <a href="../../additional_features/editing_requirements/">requirements file</a> for this environment is <code>.devcontainer/local-requirements.txt</code>.</p>
 <h3 id="dev">dev</h3>
-<p>The dev environment is created by running the <code>dev</code> service in the <a href="https://github.com/mark-curran/data-science-project-template/blob/main/docker-compose.yml">docker compose file</a>. Its <a href="../../additional_features/editing_requirements/">requirements file</a> is <code>dev/dev-requirements.txt</code>.</p>
+<p>The dev config is stored in the <a href="https://github.com/mark-curran/data-science-project-template/tree/main/dev"><code>dev</code> folder</a>. Start the <code>dev</code> service in <code>docker-compose-dev.yml</code> which installs the requirements <code>requirements-dev.txt</code>.</p>
 <p>By default the main branch of the repository contains a number of packages that are relevant to dev development.</p>
 <ul>
 <li>Exploratory data analysis and visualizations using <a href="https://jupyterlab.readthedocs.io/en/stable/index.html">Jupyterlab</a>.</li>
 <li>Data manipulation using <a href="https://pandas.pydata.org/">pandas</a>.</li>
 </ul>
+<p>Further information on using Jupyterlab on remote machine is provided in <a href="../../additional_features/jupyterlab/">this page</a>.</p>
 <h3 id="prod">prod</h3>
-<p>The prod environment is created by running the <code>prod</code> service in the <a href="https://github.com/mark-curran/data-science-project-template/blob/main/docker-compose.yml">docker compose file</a>. Its <a href="../../additional_features/editing_requirements/">requirements file</a> is <code>prod-requirements.txt</code>.</p>
-<p>By default the main branch of the repository contains only the packages that might be relevant in a production setting.</p>
-<ul>
-<li>Data manipulation using <a href="https://pandas.pydata.org/">pandas</a>.</li>
-</ul>
+<p>Finally, the prod config is stored in the <a href="https://github.com/mark-curran/data-science-project-template">root folder of the repository</a>. Start the <code>prod</code> service in <code>docker-compose.yml</code> which installs the requirements <code>requirements-prod.txt</code>.\</p>
               
             </div>
           </div><footer>

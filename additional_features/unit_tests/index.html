@@ -62,11 +62,13 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../jupyterlab/">Jupyterlab</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../editing_requirements/">Editing the requirements file</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../editing_requirements/">Editing a Requirements File</a>
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">Unit Tests</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#unit-tests-using-pytest">Unit tests using pytest</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#integration-testing">Integration Testing</a>
     </li>
     </ul>
                   </li>
@@ -109,14 +111,16 @@
                 <h1 id="unit-tests">Unit Tests</h1>
 <p>This page explains how to run unit tests.</p>
 <h2 id="unit-tests-using-pytest">Unit tests using pytest</h2>
-<p>By default, the template installs <a href="https://docs.pytest.org/en/7.1.x/index.html">pytest</a> into the local environment. This allows one to non-resource intensive unit tests on the local host.</p>
+<p>By default, the template installs <a href="https://docs.pytest.org/en/7.1.x/index.html">pytest</a> into the local environment. This allows one to run any non-resource intensive unit tests on the local host.</p>
 <p>To run the example unit tests, run this code from the root folder of repository.</p>
 <p><code>pytest -v tests/test_regurgitator.py</code></p>
+<h2 id="integration-testing">Integration Testing</h2>
+<p>Integration testing is beyond the scope of the Data Science Template, though it is recommended to use a separate environment from dev or prod to run these tests, i.e., a staging environment.</p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../editing_requirements/" class="btn btn-neutral float-left" title="Editing the requirements file"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../editing_requirements/" class="btn btn-neutral float-left" title="Editing a Requirements File"><span class="icon icon-circle-arrow-left"></span> Previous</a>
         <a href="../users_inside_container/" class="btn btn-neutral float-right" title="Running Docker Containers as a non-root User">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
