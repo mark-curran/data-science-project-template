@@ -48,6 +48,13 @@
                 },
                 // Less notifications to install extensions.
                 "extensions.ignoreRecommendations": true,
+                // Editor actions in response to certain git commands.
+                "git.closeDiffOnOperation": true,
+                "git.mergeEditor": false,
+                "git.openDiffOnClick": false,
+                "git.suggestSmartCommit": false,
+                "git.useIntegratedAskPass": false,
+                // Control markdown linting.
                 "[markdown]": {
                     "editor.formatOnSave": true
                 },
