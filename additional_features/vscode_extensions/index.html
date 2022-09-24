@@ -161,7 +161,7 @@
 <li><a href="https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance">pylance</a> is the language server. Problems identified by pylance appear in the <em>PROBLEMS</em> tab in the VSCode UI.</li>
 <li><a href="https://pylint.pycqa.org/en/latest/">pylint</a> and <a href="http://www.pydocstyle.org/en/stable/">pydocstyle</a> are enabled. Problems identified by these static code checkers appear in the <em>PROBLEMS</em> tab in the VSCode UI.</li>
 <li><a href="https://github.com/NilsJPWerner/autoDocstring">autoDocstring</a> is enabled and provides shortcuts to generate <code>google</code> style docstrings.</li>
-<li>Upon save, both <a href="https://pypi.org/project/isort/">isort</a> and <a href="https://pypi.org/project/black/">black</a> are run on all python files.</li>
+<li>Upon save, both <a href="https://pypi.org/project/isort/">isort</a> and <a href="https://pypi.org/project/black/">black</a> are run on all python files. Moreover notifications raised by pylance, pylint and pydocstyle are also refreshed.</li>
 <li>All code checkers will ignore unresolved imports. This is because heavyweight libraries should be <a href="../../design/design/#environments-in-a-data-sciene-project">installed in a dev and prod environments</a>, the local environment should be as lightweight as possible.</li>
 <li>Telemetry is disabled.</li>
 <li><a href="https://code.visualstudio.com/docs/python/testing">VSCode UI for unit testing</a> are disabled. Tests can be run from <a href="../unit_tests/">the command line</a>.</li>
