@@ -4,8 +4,8 @@ services:
     build:
       context: '.'
       args:
-        REQIREMENTS_FILE: './prod-requirements.txt'
+        REQIREMENTS_FILE: './requirements.txt'
         STARTING_DIR: '/app'
     volumes:
-      - ./app:/app
-    image: my-data-science-app-prod
+      - ./src:/src
+    image: scrambled-words

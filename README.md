@@ -1,7 +1,5 @@
-# Data Science Project Template
+# Scrambled Words
 
-This is the README of the theData Science Project Template.
+This repo contains a solution to [Google's scrambled words problem](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edf/0000000000051004).
 
-Full documentation can be found here:
-
-<https://mark-curran.github.io/data-science-project-template/>
+As a starting point, we used the basic strucutre provided by the [Data Science Project Template](https://github.com/mark-curran/data-science-project-template).
